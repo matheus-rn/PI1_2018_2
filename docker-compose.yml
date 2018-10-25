@@ -1,18 +1,21 @@
-version: '3.5'
+version: '2'
 
 services:
-
-  db:
-    image: postgres
-    ports:
-      - 5000:5432
-
-  web:
-    build: .
-    command: /bin/sh ./boot.sh
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
+    db:
+        image: postgres
+        environment:
+            - POSTGRES_PASSWORD=1234678
+            - POSTGRES_USER=Igor
+            - POSTGRES_DB=nome_projeto
+        volumes:
+            - ./ignore:/var/lib/postgresql/data
+    web:
+        environment:
+            - POSTGRES_HOST=db
+        build: .
+        ports:
+            - "8000:8000"
+        tty: true
+        volumes:
+            - .:/code
+        command: ./wait-for-it.sh db:5432 -- python manage.py runserver 0.0.0.0:8000

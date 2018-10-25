@@ -1,11 +1,7 @@
-FROM python:3.5
-ENV PYTHONUNBUFFERED 1
-
-RUN mkdir /code
+From python:3.6
 WORKDIR /code
 
-ADD . /code/
-RUN pip install -r requirements.txt && \
-    chmod +x boot.sh
-
-CMD ["./boot.sh"]
+ADD requirements.txt /code
+RUN pip install -r requirements.txt
+ADD . /code
+CMD ["python","manage.py","runserver","0.0.0.0:8000"]
