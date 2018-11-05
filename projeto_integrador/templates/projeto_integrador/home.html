@@ -1,65 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
     <head lang="pt">
         <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
-        <style>
-            /*backgroun of body*/
-            body {
-                background: url('http://thecodeplayer.com/u/m/b1.png');
-                background-repeat: no-repeat;
-                background-size: cover;
-                font-family: "Lato", sans-serif;
-            }
-
-            /*navbar lateral*/
-            .sidenav {
-                height: 100%;
-                width: 0;
-                position: fixed;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                background-color: #111;
-                overflow-x: hidden;
-                transition: 0.5s;
-                padding-top: 60px;
-            }
-
-            .sidenav a {
-                padding: 8px 8px 8px 32px;
-                text-decoration: none;
-                font-size: 25px;
-                color: #818181;
-                display: block;
-                transition: 0.3s;
-            }
-
-            .sidenav a:hover {
-                color: #f1f1f1;
-            }
-
-            .sidenav .closebtn {
-                position: absolute;
-                top: 0;
-                right: 25px;
-                font-size: 36px;
-                margin-left: 50px;
-            }
-
-            @media screen and (max-height: 450px) {
-                .sidenav {
-                    padding-top: 15px;
-                }
-
-                .sidenav a {
-                    font-size: 18px;
-                }
-            }
-
-            /*clock*/
-        </style>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
             crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="{% static 'css/projeto_integrador.css' %}">
+        <script src="{% static 'js/projeto_integrador.js' %}"></script>
     </head>
     <body>
         <div id="mySidenav" class="sidenav">
@@ -73,31 +22,9 @@
 
         <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-plus"></i></span>
 
-
-        <script>
-            function openNav() {
-                document.getElementById("mySidenav").style.width = "30%";
-                document.getElementById("main").style.marginLeft = "30%";
-            }
-
-            function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-                document.getElementById("main").style.marginLeft = "0";
-            }
-        </script>
         <div id="main">
             <input type='text' value='00:00:00' id='clock' readonly size='6' style="font-size: 200%; color:red" />
             <script>
-                function update_clock() {
-                    var today = new Date
-                    var hours = today.getHours()
-                    var minutes = today.getMinutes()
-                    var seconds = today.getSeconds()
-                    clock = document.getElementById('clock')
-                    clock.value = hours + ":" + minutes + ":" + seconds
-                    setTimeout('update_clock()', 1000)
-                }
-
                 update_clock()
             </script>
         </div>
