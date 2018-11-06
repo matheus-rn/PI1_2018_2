@@ -1,7 +1,8 @@
-From python:3.6
+FROM python:latest
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /code
 WORKDIR /code
-
-ADD requirements.txt /code
+ADD requirements.txt /code/
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-ADD . /code
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+ADD . /code/
