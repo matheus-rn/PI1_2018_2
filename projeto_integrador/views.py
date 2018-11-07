@@ -17,6 +17,6 @@ class MedicamentoViewSet(generics.ListCreateAPIView):
     queryset = Medicamento.objects.all()
     serializer_class = MedicamentoSerializer
 
-class MedicamentoDetailView(generics.UpdateAPIView):
+class MedicamentoDetailViewSet(generics.RetrieveUpdateDestroyAPIView):
     queryset = Medicamento.objects.all()
     serializer_class = MedicamentoSerializer

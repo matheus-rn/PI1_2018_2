@@ -9,5 +9,5 @@ class Medicamento(models.Model):
     intervalo = models.TimeField()
     horario_Ini = models.TimeField()
     qtd = models.PositiveIntegerField(blank=False, null=False)
-    limite = models.PositiveIntegerField(blank=False, null=False)
+    limite = models.TimeField()
     status = models.BooleanField(default=True)

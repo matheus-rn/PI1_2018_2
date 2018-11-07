@@ -5,5 +5,5 @@ from projeto_integrador.views import home
 
 urlpatterns = [
     url(r'^medicamentos/',  views.MedicamentoViewSet.as_view()),
-    url(r'^medicamentos/(?P<pk>[0-9]+)/$', views.MedicamentoDetailView.as_view()),
+    url(r'^medicamento/(?P<pk>[0-9]+)/$', views.MedicamentoDetailViewSet.as_view()),
 ]
