@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-{% load static %}
+{% extends "projeto_integrador/base.html" %}
+{% block title %}
+    Página Inicial
+{% endblock %}
 
-<html>
-    <head lang="pt">
-        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-            crossorigin="anonymous">
-        
-        <link rel="stylesheet" href="{% static 'css/projeto_integrador.css' %}">
-        <script src="{% static 'js/projeto_integrador.js' %}"></script>
-    </head>
-    <body>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#"><i class="fas fa-briefcase-medical"></i>&nbsp;&nbsp;Modulos de Registros</a>
-            <br>
-            <a href="#"><i class="fas fa-capsules"></i>&nbsp;&nbsp;Gerenciar medicamentos</a>
-            <br>
-            <a href="#"><i class="fas fa-weight"></i>&nbsp;&nbsp;Liberação de Medicamentos</a>
-        </div>
 
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-plus"></i></span>
-
-        <div id="main">
-            <input type='text' value='00:00:00' id='clock' readonly size='6' style="font-size: 200%; color:red" />
-            <script>
-                update_clock()
-            </script>
-        </div>
-    </body>
-</html>
+{% block body %}
+    <input type='text' value='00:00:00' id='clock' readonly size='6' style="font-size: 200%; color:red" />
+    <script>update_clock()</script>
+{% endblock %}
