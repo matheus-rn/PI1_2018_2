@@ -1,0 +1,27 @@
+{% extends "projeto_integrador/base.html" %}
+
+{% block title %}
+    {% if slot %}
+        Atualizar Módulo
+    {% else %}
+        Novo Módulo
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if slot %}
+        <h1>Atualizar Módulo</h1>
+    {% else %}
+        <h1>Novo Módulo</h1>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    {% if slot %}
+        <a href="{% url 'delete_slot' slot.id %}">Deletar</a>
+    {% endif %}
+{% endblock %}

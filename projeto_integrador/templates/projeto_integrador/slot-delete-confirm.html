@@ -1,0 +1,13 @@
+{% extends "projeto_integrador/base.html" %}
+
+{% block title %}
+    Deletar Módulo
+{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        <h2> Tem certeza que deseja deletar o módulo {{ slot.number }} ?</h2>
+        <button type="submit">Confirmar</button>
+    </form>
+{% endblock %}

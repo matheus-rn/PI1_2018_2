@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+
+class Slot(models.Model):
+    # medicine = models.ForeignKey('Medicine', on_delete=models.CASCADE)
+    medicine = models.CharField(max_length=20)
+    number = models.IntegerField()
+
+
+    def __str__(self):
+        return self.number
