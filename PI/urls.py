@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import include, url
-from projeto_integrador.views import home
+from projeto_integrador.views import *
 from projeto_integrador import urls
 
 urlpatterns = [
     path('',home),
+    url(r'^index/', medicamentoIndexView, name='medicamentoIndexView'),
+    url(r'^medicamento/(?P<medicamento_id>[0-9]+)/details/$', medicamentoDetailView, name='medicamentoDetailView'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('projeto_integrador.urls')),
 ]
