@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
-from projeto_integrador.models import *
-from projeto_integrador.forms import *
+from .models import Slot
+from .forms import SlotForm
+
 
 def home(request):
     return render(request, 'projeto_integrador/home.html')
@@ -9,7 +10,8 @@ def home(request):
 # Slot
 def list_slots(request):
     slots = Slot.objects.all()
-    return render(request, 'projeto_integrador/slots.html', {'slots':slots})
+    return render(request, 'projeto_integrador/slots.html', {'slots': slots})
+
 
 def create_slot(request):
     form = SlotForm(request.POST or None)
@@ -18,7 +20,8 @@ def create_slot(request):
         form.save()
         return redirect('list_slots')
 
-    return render(request, 'projeto_integrador/slot-form.html', {'form':form})
+    return render(request, 'projeto_integrador/slot-form.html', {'form': form})
+
 
 def update_slot(request, id):
     slot = Slot.objects.get(id=id)
@@ -28,7 +31,8 @@ def update_slot(request, id):
         form.save()
         return redirect('list_slots')
 
-    return render(request, 'projeto_integrador/slot-form.html', {'form':form, 'slot':slot})
+    return render(request, 'projeto_integrador/slot-form.html', {'form': form, 'slot': slot})
+
 
 def delete_slot(request, id):
     slot = Slot.objects.get(id=id)
@@ -37,4 +41,4 @@ def delete_slot(request, id):
         slot.delete()
         return redirect('list_slots')
 
-    return render(request, 'projeto_integrador/slot-delete-confirm.html', {'slot':slot})
+    return render(request, 'projeto_integrador/slot-delete-confirm.html', {'slot': slot})

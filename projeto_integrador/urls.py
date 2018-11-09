@@ -1,8 +1,14 @@
 from django.urls import path
-from projeto_integrador.views import *
+from django.conf.urls import url, include
+from .views import *
+from .resources import *
+
 
 urlpatterns = [
     path('', home, name='home'),
+
+    # API Slot
+    url(r'^api/', include(SlotResource().urls)),
 
     # Slot
     path('slots', list_slots, name='list_slots'),

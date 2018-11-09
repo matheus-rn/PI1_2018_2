@@ -1,8 +1,9 @@
 from django import forms
-from projeto_integrador.models import *
+from .models import Slot
+
 
 # Slot
 class SlotForm(forms.ModelForm):
     class Meta:
         model = Slot
-        fields = ['medicine', 'number']
+        fields = '__all__'
