@@ -1,37 +1,28 @@
-{% block main_content %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title> Detalhes do Medicamento </title>
-  </head>
+{% extends "base.html" %}
+{% block title %}
+    Detalhes do Medicamento
+{% endblock %}
 
-  <body>
-      <div>
+{% block body %}
+    <div>
         <h3>
-          <a href="#">{{ medicamento.nome }}</a>
+            <a href="#">{{ medicamento.nome }}</a>
         </h3>
 
-          <p> Quantidade: </p>
-          <p>{{ medicamento.qtd }}</p>
-          <hr>
-          <p> Horario de Inicio: </p>
-          <p>{{ medicamento.horario_Ini }}</p>
-          <hr>
-          <p> Intervalo: </p>
-          <p>{{ medicamento.intervalo }}</p>
-          <hr>
-          <p> Limite: </p>
-          <p>{{ medicamento.limite }}</p>
-          <hr>
-          <p> Status: </p>
-          <p>{{ medicamento.status }}</p>
-          <hr>
-
-      </div>
-  </body>
-</html>
-{% endblock main_content %}
+        <p> Quantidade: </p>
+        <p>{{ medicamento.qtd }}</p>
+        <hr>
+        <p> Horario de Inicio: </p>
+        <p>{{ medicamento.horario_Ini }}</p>
+        <hr>
+        <p> Intervalo: </p>
+        <p>{{ medicamento.intervalo }}</p>
+        <hr>
+        <p> Limite: </p>
+        <p>{{ medicamento.limite }}</p>
+        <hr>
+        <p> Status: </p>
+        <p>{{ medicamento.status }}</p>
+        <hr>
+    </div>
+{% endblock %}

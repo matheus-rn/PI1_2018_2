@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head lang="pt">
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+            crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="{% static 'css/projeto_integrador.css' %}">
+        <script src="{% static 'js/projeto_integrador.js' %}"></script>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn fa fa-chevron-left" aria-hidden="true" onclick="closeNav()"></a>
+            <br>
+            <a href="{% url 'home' %}" class="fas fa-home" aria-hidden="true">
+                Página Inicial
+            </a>
+            <br>
+            <a href="#" class="fas fa-briefcase-medical" aria-hidden="true">
+                Modulos de Registros
+            </a>
+            <br>
+            <a href="#" class="fas fa-capsules" aria-hidden="true">
+                Gerenciar medicamentos
+            </a>
+            <br>
+            <a href="#" class="fas fa-weight" aria-hidden="true">
+                Histórico de Medicamentos
+            </a>
+            <br>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </span>
+
+        <div id="main">
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>

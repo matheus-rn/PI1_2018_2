@@ -1,26 +1,19 @@
-{% block main_content %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Medicamentos</title>
-  </head>
+{% extends "base.html" %}
+{% block title %}
+    Medicamentos
+{% endblock %}
 
-  <body>
+
+{% block body %}
     <h1>Medicamentos</h1>
 
-      <section id="grid" class="content-section" >
+    <section id="grid" class="content-section" >
         <div class="row">
-        {% for medicamento in medicamentos %}
-          <a href="medicamento/{{medicamento.id}}/details/"
-            <p> {{ medicamento.nome }} </p>
-          </a>
-        {% endfor %}
+            {% for medicamento in medicamentos %}
+                <a href="medicamento/{{medicamento.id}}/details/"
+                <p> {{ medicamento.nome }} </p>
+                </a>
+            {% endfor %}
         </div>
-      </div>
     </section>
-
-  </body>
-</html>
-{% endblock main_content %}
+{% endblock %}
