@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+    Detalhes do Medicamento
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h3>
+            <a href="#">{{ medicamento.nome }}</a>
+        </h3>
+
+        <p> Quantidade: </p>
+        <p>{{ medicamento.qtd }}</p>
+        <hr>
+        <p> Horario de Inicio: </p>
+        <p>{{ medicamento.horario_Ini }}</p>
+        <hr>
+        <p> Intervalo: </p>
+        <p>{{ medicamento.intervalo }}</p>
+        <hr>
+        <p> Limite: </p>
+        <p>{{ medicamento.limite }}</p>
+        <hr>
+        <p> Status: </p>
+        <p>{{ medicamento.status }}</p>
+        <hr>
+    </div>
+{% endblock %}
