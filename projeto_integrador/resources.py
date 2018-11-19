@@ -1,6 +1,6 @@
 from tastypie.resources import ModelResource
-from .models import Slot
 from tastypie.authorization import Authorization
+from projeto_integrador.models import Slot
 
 
 class SlotResource(ModelResource):

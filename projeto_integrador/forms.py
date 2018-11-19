@@ -1,5 +1,5 @@
 from django import forms
-from .models import Slot
+from projeto_integrador.models import Slot
 
 
 # Slot
