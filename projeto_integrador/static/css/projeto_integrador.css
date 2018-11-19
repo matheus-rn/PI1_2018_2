@@ -51,4 +51,8 @@ body {
     }
 }
 
+h1, h2, a {
+    color: #FFFFFF;
+}
+
 /*clock*/

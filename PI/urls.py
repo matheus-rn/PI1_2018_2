@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import include, url
 from projeto_integrador.views import *
+from projeto_integrador.resources import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,11 @@ urlpatterns = [
     url(r'^api/medicamento/(?P<pk>[0-9]+)/$', MedicamentoDetailViewSet.as_view()),
     url(r'^index/', medicamentoIndexView, name='medicamentoIndexView'),
     url(r'^medicamento/(?P<medicamento_id>[0-9]+)/details/$', medicamentoDetailView, name='medicamentoDetailView'),
+
+    # Compartimentos 
+    url(r'^api/', include(SlotResource().urls)),
+    path('slots/', list_slots, name='list_slots'),
+    path('new_slot/', create_slot, name='create_slot'),
+    path('update_slot/<int:id>/', update_slot, name='update_slot'),
+    path('delete_slot/<int:id>/', delete_slot, name='delete_slot'),
 ]
