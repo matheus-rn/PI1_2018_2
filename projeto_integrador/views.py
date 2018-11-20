@@ -1,47 +1,48 @@
 from django.shortcuts import render, HttpResponse, redirect
-from django.http import Http404
 
-from projeto_integrador.serializers import *
+from projeto_integrador.resources import *
 from projeto_integrador.models import *
 from projeto_integrador.forms import *
-
-#rest_framework imports
-from rest_framework import generics, views, viewsets, status
-from rest_framework.response import Response
 
 
 def home(request):
     return  render(request,'home.html')
 
-# Medicamento
-class MedicamentoViewSet(generics.ListCreateAPIView):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = Medicamento.objects.all()
-    serializer_class = MedicamentoSerializer
+# Medicine
+def list_medicines(request):
+    medicines = Medicine.objects.all()
+    return render(request, 'medicines.html', {'medicines': medicines})
 
 
-class MedicamentoDetailViewSet(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Medicamento.objects.all()
-    serializer_class = MedicamentoSerializer
+def create_medicine(request):
+    form = MedicineForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('list_medicines')
+
+    return render(request, 'medicine-form.html', {'form': form})
 
 
-def medicamentoIndexView(request):
-    queryset = Medicamento.objects.all()
-    context = {
-        "medicamentos": queryset,
-    }
+def update_medicine(request, id):
+    medicine = Medicine.objects.get(id=id)
+    form = MedicineForm(request.POST or None, instance=medicine)
 
-    return render(request, 'medicamentoIndex.html', context)
+    if form.is_valid():
+        form.save()
+        return redirect('list_medicines')
+
+    return render(request, 'medicine-form.html', {'form': form, 'medicine': medicine})
 
 
-def medicamentoDetailView(request, medicamento_id):
-    try:
-        medicamento = Medicamento.objects.get(pk=medicamento_id)
-    except Medicamento.DoesNotExist:
-        raise Http404("O medicamento não existe")
-    return render(request, 'medicamentoDetail.html', {'medicamento': medicamento})
+def delete_medicine(request, id):
+    medicine = Medicine.objects.get(id=id)
+
+    if request.method == 'POST':
+        medicine.delete()
+        return redirect('list_medicines')
+
+    return render(request, 'medicine-delete-confirm.html', {'medicine': medicine})
 
 
 # Slot

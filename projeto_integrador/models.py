@@ -9,11 +9,14 @@ class Slot(models.Model):
         return self.number
 
 
-class Medicamento(models.Model):
-    nome = models.CharField(max_length=20)
-    intervalo = models.TimeField()
-    horario_Ini = models.TimeField()
-    qtd = models.PositiveIntegerField(blank=False, null=False)
-    limite = models.TimeField()
+class Medicine(models.Model):
+    name = models.CharField(max_length=20)
+    interval = models.TimeField()
+    initial_time = models.TimeField()
+    amount = models.PositiveIntegerField(blank=False, null=False)
+    limit = models.TimeField()
     status = models.BooleanField(default=True)
     slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
