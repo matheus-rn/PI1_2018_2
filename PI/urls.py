@@ -24,14 +24,15 @@ urlpatterns = [
 
     path('', home, name='home'),
     
-    # Medicamentos
-    url(r'^api/medicamentos/', MedicamentoViewSet.as_view()),
-    url(r'^api/medicamento/(?P<pk>[0-9]+)/$', MedicamentoDetailViewSet.as_view()),
-    url(r'^index/', medicamentoIndexView, name='medicamentoIndexView'),
-    url(r'^medicamento/(?P<medicamento_id>[0-9]+)/details/$', medicamentoDetailView, name='medicamentoDetailView'),
+    # Medicine
+    url(r'^api/', include(MedicineResource().urls)),    # /api/medicines/
+    path('medicines/', list_medicines, name='list_medicines'),
+    path('new_medicine/', create_medicine, name='create_medicine'),
+    path('update_medicine/<int:id>/', update_medicine, name='update_medicine'),
+    path('delete_medicine/<int:id>/', delete_medicine, name='delete_medicine'),
 
-    # Compartimentos 
-    url(r'^api/', include(SlotResource().urls)),
+    # Slot 
+    url(r'^api/', include(SlotResource().urls)),    # /api/slots/
     path('slots/', list_slots, name='list_slots'),
     path('new_slot/', create_slot, name='create_slot'),
     path('update_slot/<int:id>/', update_slot, name='update_slot'),

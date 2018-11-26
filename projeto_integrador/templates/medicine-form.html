@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if medicine %}
+        Atualizar Medicamento
+    {% else %}
+        Novo Medicamento
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if medicine %}
+        <h1>Atualizar Medicamento</h1>
+    {% else %}
+        <h1>Novo Medicamento</h1>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    {% if medicine %}
+        <br>
+        <a href="{% url 'delete_medicine' medicine.id %}">Deletar</a>
+    {% endif %}
+{% endblock %}

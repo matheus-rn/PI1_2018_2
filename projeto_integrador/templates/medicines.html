@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Medicamentos
+{% endblock %}
+
+{% block body %}
+    {% for medicine in medicines %}
+        <a href="{% url 'update_medicine' medicine.id %}">
+            <li>Medicamento {{ medicine.name }}</li>
+        </a>
+    {% endfor %}
+    <br>
+    <a href="{% url 'create_medicine' %}" class="far fa-plus-square" aria-hidden="true">
+        Novo Medicamento
+    </a>
+{% endblock %}
