@@ -8,9 +8,10 @@ test:
   services:
   - postgres:latest
 
-  variables: 
+  variables:
     POSTGRES_USER: postgres
     POSTGRES_DB: postgres
+    POSTGRES_PASSWORD: password
     POSTGRES_HOST: postgres
   script:
    - pip install -r requirements.txt

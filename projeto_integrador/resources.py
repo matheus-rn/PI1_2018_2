@@ -12,6 +12,6 @@ class SlotResource(ModelResource):
 
 class MedicineResource(ModelResource):
     class Meta:
-        queryset = Slot.objects.all().order_by('name')
+        queryset = Medicine.objects.all().order_by('name')
         resource_name = 'medicines'
         authorization = Authorization()
