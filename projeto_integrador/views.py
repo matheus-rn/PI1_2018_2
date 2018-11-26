@@ -10,7 +10,7 @@ def home(request):
 
 # Medicine
 def list_medicines(request):
-    medicines = Medicine.objects.all()
+    medicines = Medicine.objects.all().order_by('name')
     return render(request, 'medicines.html', {'medicines': medicines})
 
 
@@ -32,7 +32,7 @@ def update_medicine(request, id):
         form.save()
         return redirect('list_medicines')
 
-    return render(request, 'medicine-form.html', {'form': form, 'medicine': medicine})
+    return render(request, 'medicine-form.html', {'form': form})
 
 
 def delete_medicine(request, id):
@@ -47,7 +47,7 @@ def delete_medicine(request, id):
 
 # Slot
 def list_slots(request):
-    slots = Slot.objects.all()
+    slots = Slot.objects.all().order_by('number')
     return render(request, 'slots.html', {'slots': slots})
 
 
