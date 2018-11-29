@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Deletar Medicamento
+{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        <h2> Tem certeza que deseja deletar o medicamento {{ medicine.name }} ?</h2>
+        <button type="submit">Confirmar</button>
+    </form>
+{% endblock %}

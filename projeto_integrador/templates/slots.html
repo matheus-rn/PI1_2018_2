@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Módulos
+{% endblock %}
+
+{% block body %}
+    {% for slot in slots %}
+        <a href="{% url 'update_slot' slot.id %}">
+            <li>Módulo {{ slot.number }}</li>
+        </a>
+    {% endfor %}
+    <br>
+    <a href="{% url 'create_slot' %}" class="far fa-plus-square" aria-hidden="true">
+        Novo Módulo
+    </a>
+{% endblock %}
