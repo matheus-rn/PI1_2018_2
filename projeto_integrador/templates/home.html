@@ -5,6 +5,30 @@
 
 
 {% block body %}
-    <input type='text' value='00:00:00' id='clock' readonly size='6' style="font-size: 200%; color:red" />
-    <script>update_clock()</script>
+    <div class="clock_div">
+      <input type='text' class="clock" value='00:00:00' id='clock' readonly size='6'> 
+      <script>update_clock()</script>
+    </div>
+    <div class="container teste">
+      <div class="row">
+        <div class="col-sm coluna">
+          <div class="myCard">
+            <h3 class="cardText">Modulos de registro</h3>
+            <i class="fas fa-briefcase-medical icone"></i>
+          </div>  
+        </div>
+        <div class="col-sm coluna">
+          <div class="myCard">
+            <h3 class="cardText">Gerenciar Medicamentos</h3>
+            <i class="fas fa-capsules icone"></i>
+          </div>
+        </div>
+          <div class="col-sm coluna">
+            <div class="myCard">
+              <h3 class="cardText">Histórico de Medicamentos</h3>
+              <i class="fas fa-weight icone"></i>
+            </div>
+          </div>
+    </div>
+
 {% endblock %}
