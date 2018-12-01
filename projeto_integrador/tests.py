@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from projeto_integrador.models import Slot, Medicine
 from unittest import mock
 from datetime import date
@@ -25,3 +25,12 @@ class MedicinetTestCase(TestCase):
     def testsMedicineExist(self):
         medicine=Medicine.objects.get(name="PI")
         self.assertEqual(medicine.name,"PI")
+
+class StatusCodeTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+    def testResponseIndex(self):
+        self.response = self.client.get(
+            '/')
+        self.assertEqual(self.response.status_code,200)
+    
