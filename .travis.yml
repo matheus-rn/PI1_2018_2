@@ -8,6 +8,10 @@ before_install:
 
 before_script:
   - docker-compose -f "docker-compose.yml" up -d --build
+  - >
+    while ! docker logs web | grep "Starting development server at http://0.0.0.0:8000/"; do
+        sleep 5
+    done;
 
 script:
   - docker exec -it web python3 manage.py test
