@@ -3,6 +3,9 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - sudo /etc/init.d/postgresql stop
+
 before_script:
   - docker-compose -f "docker-compose.yml" up -d --build
 
