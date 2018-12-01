@@ -1,56 +1,27 @@
 from django.test import TestCase
 from projeto_integrador.models import Slot, Medicine
-from datetime import date
 from unittest import mock
+from datetime import date
 
 class slotTestCase(TestCase):
+
     def setUp(self):
         Slot.objects.create(number = 2)
 
 
-    def slotExist(self):
+    def testSlotExist(self):
         slot = Slot.objects.get(number = 2)
-        self.assertTrue(slot)
+        slot=slot.number
+        self.assertEqual(slot,2)
 
-
-def fakeSlot():
-    return 2
-
-
-def fakeTimeSeconds():
-    return date.seconds(15)
-
-
-def fakeTimeHour():
-    return date.time(15000)
-
-
-class medicineTestCase(TestCase):
-    @mock.patch("date.seconds", fakeTimeSeconds)
-    @mock.patch("date.time", fakeTimeHour)
-    @mock.patch("Slot", fakeSlot)
-
-
+class MedicinetTestCase(TestCase):
     def setUp(self):
-        Medicine.objects.create(
-            name = "abacate",
-            interval = date.seconds(),
-            initial_time = date.time(),
-            amount = 8,
-            limit = date.seconds(),
-            status = True,
-            slot = Slot()
-        )
+        Slot.objects.create(number = 2)
+        slot=Slot.objects.get(number = 2) 
 
-
-    def checkExistMedicine(self):
-            med = Medicine.objects.get(
-                name = "abacate",
-                interval = 15,
-                initial_time = 15000 ,
-                amount = 8,
-                limit = 15,
-                status = True,
-                slot = 2
-            )
-            self.assertTrue(med)
+        Medicine.objects.create(name='PI',interval="13:10:00",initial_time="20:00:00",
+                                amount=10,limit="00:10:00",status=True,slot=slot
+                                )
+    def testsMedicineExist(self):
+        medicine=Medicine.objects.get(name="PI")
+        self.assertEqual(medicine.name,"PI")
