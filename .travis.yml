@@ -3,13 +3,11 @@ sudo: required
 services:
   - docker
 
-# before_script:
-#   - docker-compose -f "docker-compose.yml" up -d --build
+before_script:
+  - docker-compose -f "docker-compose.yml" up -d --build
 
 script:
-  # - docker exec -it backend python3 manage.py test
-  - docker-compose -f "docker-compose.yml" up -d --build  # Delete this command when uncomment the test command and 
-                                                          # uncomment before_script
+  - docker exec -it web python3 manage.py test
 
 after_script:
   - docker-compose -f "docker-compose.yml" down --remove-orphans
