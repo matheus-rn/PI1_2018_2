@@ -3,13 +3,20 @@ version: '3'
 services:
   db:
     container_name: db
+    restart: always
     image: postgres
     environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
   web:
     container_name: web
+    restart: always
     build: .
-    command: /bin/bash -l -c 'python3 manage.py makemigrations && python3 manage.py migrate --noinput && python3 manage.py runserver 0.0.0.0:8000'
+    command: /bin/bash -l -c '
+              python3 manage.py makemigrations && 
+              python3 manage.py migrate --noinput && 
+              python3 manage.py runserver 0.0.0.0:8000'
     volumes:
       - .:/code
     ports:
