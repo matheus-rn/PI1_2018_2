@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
+    <a href="{% url 'create_slot' %}" class="btn btn-info" aria-hidden="true">
+        Novo Módulo
+    </a>
     {% for slot in slots %}
         <a href="{% url 'update_slot' slot.id %}">
             <li>Módulo {{ slot.number }}</li>
         </a>
     {% endfor %}
-    <br>
-    <a href="{% url 'create_slot' %}" class="btn btn-info" aria-hidden="true">
-        Novo Módulo
-    </a>
+    
 {% endblock %}

@@ -5,6 +5,36 @@
 
 
 {% block body %}
-    <input type='text' value='00:00:00' id='clock' readonly size='6' style="font-size: 200%; color:red" />
-    <script>update_clock()</script>
+<div class="body-home">
+	<div class="clock-container">
+	  <div class="clock-col">
+	    <p class="clock-day clock-timer">
+	    </p>
+	    <p class="clock-label">
+	      Dia
+	    </p>
+	  </div>
+	  <div class="clock-col">
+	    <p class="clock-hours clock-timer">
+	    </p>
+	    <p class="clock-label">
+	      Hora
+	    </p>
+	  </div>
+	  <div class="clock-col">
+	    <p class="clock-minutes clock-timer">
+	    </p>
+	    <p class="clock-label">
+	      Minutos
+	    </p>
+	  </div>
+	  <div class="clock-col">
+	    <p class="clock-seconds clock-timer">
+	    </p>
+	    <p class="clock-label">
+	      Segundos
+	    </p>
+	  </div>
+	</div>
+</div>    
 {% endblock %}
