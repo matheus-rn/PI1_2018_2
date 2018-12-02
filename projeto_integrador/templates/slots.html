@@ -5,13 +5,24 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{% url 'create_slot' %}" class="btn btn-info" aria-hidden="true">
-        Novo Módulo
-    </a>
-    {% for slot in slots %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope ='col'>Módulo</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for slot in slots %}
+        <td>
         <a href="{% url 'update_slot' slot.id %}">
             <li>Módulo {{ slot.number }}</li>
         </a>
-    {% endfor %}
+        </td>
+        </tbody>
+        {% endfor %}
+    </table>
+    <a href="{% url 'create_slot' %}" class="btn btn-info" aria-hidden="true">
+            Novo Módulo
+    </a>
     
 {% endblock %}

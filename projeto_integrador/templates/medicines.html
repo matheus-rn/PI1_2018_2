@@ -5,13 +5,28 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{% url 'create_medicine' %}" class="btn btn-info" aria-hidden="true">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Módulo</th>
+                <th scope="col">Medicamento</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medicine in medicines %}
+        <td>
+            <li>{{medicine.slot}}</li>
+        </td>
+        <td>
+        <a href="{% url 'details_medicines' medicine.id %}">
+            <li>{{ medicine.name }}</li>
+        </a>
+        </td>
+        </tbody>
+    {% endfor %}
+    </table>
+    <a href="{% url 'create_medicine' %}" class="btn btn-info" style="text-align: center" aria-hidden="true">
         Novo Medicamento
     </a>
-    {% for medicine in medicines %}
-        <a href="{% url 'details_medicines' medicine.id %}">
-            <li>Medicamento {{ medicine.name }}</li>
-        </a>
-    {% endfor %}
 
 {% endblock %}
