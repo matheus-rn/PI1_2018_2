@@ -11,8 +11,8 @@
   content: var(--timer-seconds);
 }
 
-.body-home {
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+.w3-container {
+  background: linear-gradient(45deg, #79e9a4 40%, #5238e4 100%);
   font-family: "Montserrat", "sans-serif";
   min-height: 100vh;
   display: flex;
