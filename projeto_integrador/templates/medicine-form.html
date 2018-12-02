@@ -19,13 +19,14 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success" >Salvar</button>
-    </form> 
-       
         {% if medicine %}
             <a href="{% url 'delete_medicine' medicine.id %}" class="btn btn-danger" aria-hidden="true"">     Deletar
             </a>
         {% endif %}
 
+    </form> 
+       
+        
     </form>
 
 {% endblock %}
