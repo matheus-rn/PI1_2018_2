@@ -1162,6 +1162,7 @@ select.form-control:not([size]):not([multiple]) {
     height: 55px;
     position: relative;
     z-index: 1;
+    padding-bottom: 0;
 }
 
 .copywrite-text p {

@@ -6,23 +6,23 @@
 {% block body %}
     <div>
         <h3>
-            <a href="#">{{ medicamento.nome }}</a>
+            {{ medicine.name }}
         </h3>
 
         <p> Quantidade: </p>
-        <p>{{ medicamento.qtd }}</p>
+        <p>{{ medicine.amount }}</p>
         <hr>
         <p> Horario de Inicio: </p>
-        <p>{{ medicamento.horario_Ini }}</p>
+        <p>{{ medicine.initial_time }}</p>
         <hr>
         <p> Intervalo: </p>
-        <p>{{ medicamento.intervalo }}</p>
+        <p>{{ medicine.interval }}</p>
         <hr>
         <p> Limite: </p>
-        <p>{{ medicamento.limite }}</p>
+        <p>{{ medicine.limit }}</p>
         <hr>
         <p> Status: </p>
-        <p>{{ medicamento.status }}</p>
+        <p>{{ medicine.status }}</p>
         <hr>
     </div>
 {% endblock %}

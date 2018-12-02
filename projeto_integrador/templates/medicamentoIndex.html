@@ -7,13 +7,9 @@
 {% block body %}
     <h1>Medicamentos</h1>
 
-    <section id="grid" class="content-section" >
-        <div class="row">
-            {% for medicamento in medicamentos %}
-                <a href="medicamento/{{medicamento.id}}/details/"
-                <p> {{ medicamento.nome }} </p>
-                </a>
-            {% endfor %}
-        </div>
-    </section>
+    {% for medicine in medicines %}
+        <a href="{% url 'details_medicines' medicine.id %}">
+            <li> {{ medicine.name }}</li>
+        </a>
+    {% endfor %}
 {% endblock %}

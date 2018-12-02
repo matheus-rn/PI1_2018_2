@@ -6,7 +6,7 @@
 
 {% block body %}
     {% for medicine in medicines %}
-        <a href="{% url 'update_medicine' medicine.id %}">
+        <a href="{% url 'details_medicines' medicine.id %}">
             <li>Medicamento {{ medicine.name }}</li>
         </a>
     {% endfor %}
