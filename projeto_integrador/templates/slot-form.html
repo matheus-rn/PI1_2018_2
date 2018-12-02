@@ -18,11 +18,11 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Salvar</button>
+        <button type="submit" class="btn btn-success" aria-hidden="true">Salvar</button>
+        {% if slot %}
+            <a href="{% url 'delete_slot' slot.id %}" class="btn btn-danger" aria-hidden="true">
+                Deletar
+            </a>
+        {% endif %}
     </form>
-
-    {% if slot %}
-        <br>
-        <a href="{% url 'delete_slot' slot.id %}">Deletar</a>
-    {% endif %}
 {% endblock %}

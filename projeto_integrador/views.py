@@ -40,7 +40,7 @@ def update_medicine(request, id):
         form.save()
         return redirect('list_medicines')
 
-    return render(request, 'medicine-form.html', {'form': form})
+    return render(request, 'medicine-form.html', {'form': form, 'medicine': medicine})
 
 
 def delete_medicine(request, id):
