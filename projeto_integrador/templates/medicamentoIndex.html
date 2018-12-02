@@ -2,14 +2,23 @@
 {% block title %}
     Medicamentos
 {% endblock %}
-
-
 {% block body %}
     <h1>Medicamentos</h1>
-
-    {% for medicine in medicines %}
-        <a href="{% url 'details_medicines' medicine.id %}">
-            <li> {{ medicine.name }}</li>
-        </a>
-    {% endfor %}
+    <table>
+        <tr>
+            <th>Medicamento</th>    
+            <th>Quantidade</th>    
+            <th>Horário inicial</th>    
+            <th>Intervalo</th>    
+        </tr>
+        {% for medicine in medicines %}
+            <tr>
+                <th>{{ medicine.name }}</th>
+                <th>{{ medicine.amount }}</th>
+                <th>{{ medicine.initial_time }}</th>
+                <th>{{ medicine.interval }}</th>
+            </tr>
+        {% endfor %}    
+        
+    </table>    
 {% endblock %}

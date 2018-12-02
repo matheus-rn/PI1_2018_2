@@ -30,7 +30,7 @@ urlpatterns = [
     path('new_medicine/', create_medicine, name='create_medicine'),
     path('update_medicine/<int:id>/', update_medicine, name='update_medicine'),
     path('delete_medicine/<int:id>/', delete_medicine, name='delete_medicine'),
-    path('details_medicines/<int:id>/', details_medicines, name='details_medicines'),
+    path('details_medicines/<int:id>/', detailing_medicines, name='details_medicines'),
     path('medicines_history/', list_medicines_history, name='medicines_history'),
 
     # Slot 

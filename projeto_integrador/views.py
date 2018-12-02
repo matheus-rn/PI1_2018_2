@@ -13,7 +13,7 @@ def list_medicines(request):
     medicines = Medicine.objects.all().order_by('name')
     return render(request, 'medicines.html', {'medicines': medicines})
 
-def details_medicines(request, id):
+def detailing_medicines(request, id):
     medicine = Medicine.objects.get(id=id)
     return render(request, 'medicamentoDetail.html', {'medicine': medicine})
 
