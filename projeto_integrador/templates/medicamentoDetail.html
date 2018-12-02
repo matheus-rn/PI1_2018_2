@@ -24,5 +24,14 @@
         <p> Status: </p>
         <p>{{ medicine.status }}</p>
         <hr>
+
+        <a href="{% url 'update_medicine' medicine.id %}" class="btn btn-primary" aria-hidden="true">
+            Alterar
+        </a>
+        <a href="{% url 'delete_medicine' medicine.id %}" class="btn btn-danger" aria-hidden="true">
+            Excluir
+        </a>
     </div>
+
+
 {% endblock %}

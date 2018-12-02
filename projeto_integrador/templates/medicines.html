@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block body %}
+    <br>
+    <a href="{% url 'create_medicine' %}" class="btn btn-info" aria-hidden="true">
+        Novo Medicamento
+    </a>
     {% for medicine in medicines %}
         <a href="{% url 'details_medicines' medicine.id %}">
             <li>Medicamento {{ medicine.name }}</li>
         </a>
     {% endfor %}
-    <br>
-    <a href="{% url 'create_medicine' %}" class="far fa-plus-square" aria-hidden="true">
-        Novo Medicamento
-    </a>
+
 {% endblock %}

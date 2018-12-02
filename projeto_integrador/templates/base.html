@@ -73,7 +73,9 @@
     </header>
     <!-- ***** Header Area End ***** -->
     <div id="main">
-        {% block body %}{% endblock %}
+        {% include "messages.html" %}
+        {% block body %}
+        {% endblock %}
     </div>
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">
