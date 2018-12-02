@@ -17,7 +17,11 @@
 
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        {% for field in form %}
+            {{ field }}
+        {%endfor%}
+
         <button type="submit" class="btn btn-success" aria-hidden="true">Salvar</button>
         {% if medicine %}
             <a href="{% url 'delete_medicine' medicine.id %}" class="btn btn-danger" aria-hidden="true"">     Deletar
