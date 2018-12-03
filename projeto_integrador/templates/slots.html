@@ -5,24 +5,48 @@
 {% endblock %}
 
 {% block body %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th scope ='col'>Módulo</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for slot in slots %}
-        <td>
-        <a href="{% url 'update_slot' slot.id %}">
-            <li>Módulo {{ slot.number }}</li>
-        </a>
-        </td>
-        </tbody>
-        {% endfor %}
-    </table>
-    <a href="{% url 'create_slot' %}" class="btn btn-info" aria-hidden="true">
-            Novo Módulo
-    </a>
+ <!-- Page content -->
+ <div class="w3-content w3-padding" style="max-width:800px">
+        
+        <div class="slot-container">
+            <h3 class="w3-border-bottom w3-border-cyan w3-padding-32"></h3>
+        
+            <!-- TABLE vusialization Section -->
+            <p>                  
+                    <div class="bg-search text-center">
+
+                            <table>
+                                    <tr>
+                                      <th><h2 class= w3-text-white >Módulos Registrados</h2></th>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                    <ol>
+                                        {% for slot in slots %}
+                                        <a href="{% url 'update_slot' slot.id %}">
+                                            <li>Módulo {{ slot.number }}</li>
+                                        </a>
+                                        {% endfor %}
+
+                                    </ol> 
+                                      </td>
+
+                                    </tr>
+                                  </table>
+                <br>
+                <br>
+                <a href="{% url 'create_slot' %}" class="btn btn-info" aria-hidden="true">
+                        Novo Módulo
+                        </a>
+                     
+                    </div>
+    
+                  <br>
+                    <br>
+            </p>
+          </div>
+      
+    <!-- end of Page content -->
+        </div> 
     
 {% endblock %}

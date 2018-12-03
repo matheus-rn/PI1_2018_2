@@ -5,28 +5,51 @@
 {% endblock %}
 
 {% block body %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Módulo</th>
-                <th scope="col">Medicamento</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for medicine in medicines %}
-        <td>
-            <li>{{medicine.slot}}</li>
-        </td>
-        <td>
-        <a href="{% url 'details_medicines' medicine.id %}">
-            <li>{{ medicine.name }}</li>
-        </a>
-        </td>
-        </tbody>
-    {% endfor %}
-    </table>
-    <a href="{% url 'create_medicine' %}" class="btn btn-info" style="text-align: center" aria-hidden="true">
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:800px">
+
+<div class="med-container">
+    <h3 class="w3-border-bottom w3-border-cyan w3-padding-32"></h3>
+
+    <!-- TABLE vusialization Section -->
+    <p>                  
+        <div class="bg-search text-center">
+
+            <table>
+                    <thead>
+                        <tr>
+                            <th scope="col"><h3 class= w3-text-white>Módulo</h3></th>
+                            <th scope="col"><h3 class= w3-text-white>Medicamento</h3></th>
+                        </tr>
+                        </thead>
+                    <tbody class= w3-text-white>
+                    {% for medicine in medicines %}
+                    <td>
+                        <lo class= w3-text-white>{{medicine.slot}}</lo>
+                    </td>
+                    <td>
+                    <a href="{% url 'details_medicines' medicine.id %}">
+                        <lo class= w3-text-white>{{ medicine.name }}</lo>
+                    </a>
+                    </td>
+                    </tbody>
+                {% endfor %}
+                </table>
+        <br>
+        <br>
+            <a href="{% url 'create_medicine' %}" class="btn btn-info" style="text-align: center" aria-hidden="true">
         Novo Medicamento
     </a>
+        </div>
+
+            <br>
+            <br>
+    </p>
+    </div>
+        
+    <!-- end of Page content -->
+        </div> 
+   
 
 {% endblock %}

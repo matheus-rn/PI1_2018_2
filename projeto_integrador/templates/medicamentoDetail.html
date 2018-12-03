@@ -4,34 +4,66 @@
 {% endblock %}
 
 {% block body %}
-    <div>
-        <h3>
-            {{ medicine.name }}
-        </h3>
 
-        <p> Quantidade: </p>
-        <p>{{ medicine.amount }}</p>
-        <hr>
-        <p> Horario de Inicio: </p>
-        <p>{{ medicine.initial_time }}</p>
-        <hr>
-        <p> Intervalo: </p>
-        <p>{{ medicine.interval }}</p>
-        <hr>
-        <p> Limite: </p>
-        <p>{{ medicine.limit }}</p>
-        <hr>
-        <p> Status: </p>
-        <p>{{ medicine.status }}</p>
-        <hr>
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:800px">
 
+<div class="med-container">
+    <h3 class="w3-border-bottom w3-border-cyan w3-padding-32"></h3>
+
+    <!-- TABLE vusialization Section -->
+    <p>                  
+        <div class="bg-search text-center">
+
+            <table>
+                    <tr>
+                        <th><h2 class= w3-text-white>Medicamento Registrado</h2></th>
+                    <tr>
+                        <td>
+                    <ol>
+                    <div>
+                            <h3>
+                                {{ medicine.name }}
+                            </h3>
+                    
+                            <p> Quantidade: </p>
+                            <p>{{ medicine.amount }}</p>
+                            <hr>
+                            <p> Horario de Inicio: </p>
+                            <p>{{ medicine.initial_time }}</p>
+                            <hr>
+                            <p> Intervalo: </p>
+                            <p>{{ medicine.interval }}</p>
+                            <hr>
+                            <p> Limite: </p>
+                            <p>{{ medicine.limit }}</p>
+                            <hr>
+                            <p> Status: </p>
+                            <p>{{ medicine.status }}</p>
+                            <hr>
+                        </div>
+                    </ol> 
+                        </td>
+
+                    </tr>
+                    </table>
+        <br>
+        <br>
         <a href="{% url 'update_medicine' medicine.id %}" class="btn btn-primary" aria-hidden="true">
-            Alterar
-        </a>
-        <a href="{% url 'delete_medicine' medicine.id %}" class="btn btn-danger" aria-hidden="true">
-            Excluir
-        </a>
-    </div>
+                Alterar
+            </a>
+            <a href="{% url 'delete_medicine' medicine.id %}" class="btn btn-danger" aria-hidden="true">
+                Excluir
+            </a>
+        </div>
 
+            <br>
+            <br>
+    </p>
+    </div>
+        
+    <!-- end of Page content -->
+        </div> 
 
 {% endblock %}
+

@@ -3,31 +3,42 @@
     Medicamentos
 {% endblock %}
 {% block body %}
-    <h1>Medicamentos</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Medicamento</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Horário inicial</th>
-                <th scope="col">Intervalo</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for medicine in medicines %}
-            <td>
-                <li>{{medicine.name}}</li>
-            </td>
-            <td>
-                <li>{{ medicine.amount }}</li>
-            </td>
-            <td>    
-                <li>{{ medicine.initial_time }}</li>
-            </td>
-            <td>    
-                <li>{{ medicine.interval }}</li>
-            </td>
-        {% endfor %}
-        </tbody>
-    </table>      
-{% endblock %}
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:800px">
+        
+        <div class="med-container">
+            <h3 class="w3-border-bottom w3-border-cyan w3-padding-32"></h3>
+        
+            <!-- TABLE vusialization Section -->
+            <p>                  
+                <div class="bg-search text-center">
+        
+                <h1 class= w3-text-white>Medicamentos</h1>
+                    <table>
+                        <tr>
+                            <th class= w3-text-white>Medicamento</th>    
+                            <th class= w3-text-white>Quantidade</th>    
+                            <th class= w3-text-white>Horário inicial</th>    
+                            <th class= w3-text-white>Intervalo</th>    
+                        </tr>
+                        {% for medicine in medicines %}
+                            <tr>
+                                <th>{{ medicine.name }}</th>
+                                <th>{{ medicine.amount }}</th>
+                                <th>{{ medicine.initial_time }}</th>
+                                <th>{{ medicine.interval }}</th>
+                            </tr>
+                        {% endfor %}    
+                        
+                    </table>  
+                <br>
+                <br>
+                </div>
+            </p>
+            </div>
+              
+<!-- end of Page content -->
+    </div> 
+    
+{% endblock %}   

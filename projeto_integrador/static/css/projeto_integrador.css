@@ -20,6 +20,24 @@
   justify-content: center;
 }
 
+.slot-container {
+  background: linear-gradient(45deg, #79e9a4 40%, #5238e4 100%);
+  font-family: "Montserrat", "sans-serif";
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-container {
+  background: linear-gradient(45deg, #79e9a4 40%, #5238e4 100%);
+  font-family: "Montserrat", "sans-serif";
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .clock-container {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -77,4 +95,21 @@
   .clock-col:before, .clock-col:after {
     display: none !important;
   }
+}
+
+table {
+  font-family: "Montserrat", "sans-serif";
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+}
+
+td, th {
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
 }
