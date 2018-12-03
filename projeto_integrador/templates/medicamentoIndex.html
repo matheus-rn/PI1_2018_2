@@ -4,21 +4,30 @@
 {% endblock %}
 {% block body %}
     <h1>Medicamentos</h1>
-    <table>
-        <tr>
-            <th>Medicamento</th>    
-            <th>Quantidade</th>    
-            <th>Horário inicial</th>    
-            <th>Intervalo</th>    
-        </tr>
-        {% for medicine in medicines %}
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th>{{ medicine.name }}</th>
-                <th>{{ medicine.amount }}</th>
-                <th>{{ medicine.initial_time }}</th>
-                <th>{{ medicine.interval }}</th>
+                <th scope="col">Medicamento</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Horário inicial</th>
+                <th scope="col">Intervalo</th>
             </tr>
-        {% endfor %}    
-        
-    </table>    
+        </thead>
+        <tbody>
+        {% for medicine in medicines %}
+            <td>
+                <li>{{medicine.name}}</li>
+            </td>
+            <td>
+                <li>{{ medicine.amount }}</li>
+            </td>
+            <td>    
+                <li>{{ medicine.initial_time }}</li>
+            </td>
+            <td>    
+                <li>{{ medicine.interval }}</li>
+            </td>
+        {% endfor %}
+        </tbody>
+    </table>      
 {% endblock %}
