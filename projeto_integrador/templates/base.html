@@ -1,44 +1,120 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 
-<html>
-    <head lang="pt">
-        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-            crossorigin="anonymous">
-        
-        <link rel="stylesheet" href="{% static 'css/projeto_integrador.css' %}">
-        <script src="{% static 'js/projeto_integrador.js' %}"></script>
-        <title>{% block title %}{% endblock %}</title>
-    </head>
-    <body>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn fa fa-chevron-left" aria-hidden="true" onclick="closeNav()"></a>
-            <br>
-            <a href="{% url 'home' %}" class="fas fa-home" aria-hidden="true">
-                Página Inicial
-            </a>
-            <br>
-            <a href="{% url 'list_slots' %}" class="fas fa-briefcase-medical" aria-hidden="true">
-                Modulos de Registros
-            </a>
-            <br>
-            <a href="{% url 'list_medicines' %}" class="fas fa-capsules" aria-hidden="true">
-                Gerenciar medicamentos
-            </a>
-            <br>
-            <a href="#" class="fas fa-weight" aria-hidden="true">
-                Histórico de Medicamentos
-            </a>
-            <br>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+    <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/moment-locale.js' %}"></script>
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/projeto_integrador.css' %}">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="medica-load"></div>
+        <img src="{% static 'img/core-img/plus.png' %}" alt="logo">
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+ 
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 h-100">
+                        <div class="main-menu h-100">
+                            <nav class="navbar h-100 navbar-expand-lg">
+                                <!-- Logo Area  -->
+                                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/core-img/logo_site.png' %}" alt="Logo"></a>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medicaMenu" aria-controls="medicaMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i> Menu</button>
+
+                                <div class="collapse navbar-collapse" id="medicaMenu">
+                                    <!-- Menu Area -->
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'list_slots' %}">Modulos de Registros</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'list_medicines' %}">Gerenciar medicamentos</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'medicines_history' %}">Histórico de Medicamentos</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">
-            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </span>
-
-        <div id="main">
-            {% block body %}{% endblock %}
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <div id="main">
+        {% include "messages.html" %}
+        {% block body %}
+        {% endblock %}
+    </div>
+    <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area">
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <div class="bottom-footer-content h-100 d-md-flex align-items-center justify-content-between">
+                            <!-- Copywrite Text -->
+                            <div class="copywrite-text">
+                                <p>Turma C Entertainment</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+
+    <script src="{% static 'js/projeto_integrador.js' %}"></script>
+
+    
+</body>
+
 </html>
