@@ -12,3 +12,4 @@ django-filter>=2.0.0
 django-tastypie
 gunicorn>=19.7.1
 django-heroku
+whitenoise
