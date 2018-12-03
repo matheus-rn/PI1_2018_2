@@ -9,20 +9,56 @@
 {% endblock %}
 
 {% block body %}
-    {% if medicine %}
-        <h1>Atualizar Medicamento</h1>
-    {% else %}
-        <h1>Novo Medicamento</h1>
-    {% endif %}
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:800px">
+        
+        <div class="med-container">
+            <h3 class="w3-border-bottom w3-border-cyan w3-padding-32"></h3>
+        
+            <!-- TABLE vusialization Section -->
+            <p>                  
+                <div class="bg-search text-center">
+        
+                    <table>
+                            <tr>
+                                <th>    
+                                    {% if medicine %}
+                                    <h1 class= w3-text-white>Atualizar Medicamento</h1>
+                                    {% else %}
+                                    <h1 class= w3-text-white>Novo Medicamento</h1>
+                                    {% endif %}</th>
+                            <tr>
+                                <td>
+                            <ol>
+        
+                            <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-success text-center" aria-hidden="true">Salvar</button>
+                            {% if medicine %}
+                                <a href="{% url 'delete_medicine' medicine.id %}" class="btn btn-danger" aria-hidden="true">Deletar
+                                </a>
+                            {% endif %}
+                            </form>
+                        </form>
 
-    {% if medicine %}
-        <br>
-        <a href="{% url 'delete_medicine' medicine.id %}">Deletar</a>
-    {% endif %}
-{% endblock %}
+        
+                            </ol> 
+                                </td>
+        
+                            </tr>
+                            </table>
+                <br>
+                <br>
+                </div>
+        
+                    <br>
+                    <br>
+            </p>
+            </div>
+                      
+        <!-- end of Page content -->
+            </div>
+   
+{% endblock %} 
