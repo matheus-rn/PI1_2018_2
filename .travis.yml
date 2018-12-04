@@ -1,0 +1,26 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - sudo /etc/init.d/postgresql stop
+
+before_script:
+  - docker-compose -f "docker-compose.yml" up -d --build
+  - >
+    while ! docker logs web | grep "Starting development server at http://0.0.0.0:8000/"; do
+        sleep 5
+    done;
+
+script:
+  - docker exec -it web python3 manage.py test
+
+after_script:
+  - docker-compose -f "docker-compose.yml" down --remove-orphans
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "DzJja7bqJcbWYV3dvR1W9R4PXcmtnDkiErNe6nCiBKsNFPL4rouSxLoI/u7z+GgEyGvgbihC1MS2xqJdFlk2F46IdzEHSPjyJuWA6+X/ydO13p2b2HN97nAZObKXGQHW2/mkkLpC1fDFNfn1JQ75qWweFpYqaOBTe2RhF4ox4a18XIT279GO+ODMfwg6nmcLnsl+SNY43d7oRjjOrbRpyPLEqBRiPrwI8VeRG5sAry8uxQz8v47/ZUJ9eLFThn1KvND8crzAOFkfV3VP4QZ/7S0a2LMjEHWoEWbcxtPtvlc7r1QKLThr8hsg13F6EOXJDATMGra6/V17gpl1y5mMLHDx/YyP8xZjq+BqaRwzfcGsn2rXK/kkj9lOXOcLLy//jgMp3Y6pk13YweX0y4F76v74G++EQnvWXhtJwFnIOBVX5zG+ppeLduE2ZEUqlndCJ76mJE7Iy5sDSb1XdNt9QaT+pS87njd0REupUo4nWu5wT6BPqsL+9FCAsqZkUsTS3oI2K/2M3pr/S8dsc67//UKH67Qo5+OZ06OyFHPx/JzrEkzgLmORYK/gMH/KgBGSys83RTY5Vlqlp+Yz9XMGh5Hg31hPTRbkXeXcyYT1AsHNFk65GD4pF1nqgFkMSG5Kp7vzWzfzEaWXDzEVkmnfglE1PQNaeFA1l0J7ViSIC24="
+  on: master

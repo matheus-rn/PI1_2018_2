@@ -2,7 +2,7 @@
 
 ## Documentação
 
-Documentação disponível em [Wiki](https://github.com/zero101010/PI1_2018_2/wiki).
+Documentação disponível na [Wiki](https://github.com/zero101010/PI1_2018_2/wiki).
 
 ## Licença
 
@@ -12,7 +12,7 @@ Copyright (c) 2018 Projeto Integrador de Engenharia 1 2018/2 - Turma C
 
 ## Como Contribuir
 
-Para contribuir com a gente, o colaborador deve _fork_ e enviar um [pull request] (https://github.com/zero101010/PI1_2018_2/pulls) com sua contribuição.
+Para contribuir com a gente, o colaborador deve _fork_ e enviar um [pull request](https://github.com/zero101010/PI1_2018_2/pulls) com sua contribuição.
 O código será analisado por um dos proprietários do projeto e, se aprovado, incluído no núcleo da aplicação.
 
 

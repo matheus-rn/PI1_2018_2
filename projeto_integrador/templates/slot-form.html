@@ -9,20 +9,57 @@
 {% endblock %}
 
 {% block body %}
-    {% if slot %}
-        <h1>Atualizar Módulo</h1>
-    {% else %}
-        <h1>Novo Módulo</h1>
-    {% endif %}
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
+    <!-- Page content -->
+ <div class="w3-content w3-padding" style="max-width:800px">
+        
+        <div class="slot-container">
+            <h3 class="w3-border-bottom w3-border-cyan w3-padding-32"></h3>
+        
+            <!-- TABLE vusialization Section -->
+            <p>                  
+                <div class="bg-search text-center">
 
-    {% if slot %}
-        <br>
-        <a href="{% url 'delete_slot' slot.id %}">Deletar</a>
-    {% endif %}
+                    <table>
+                            <tr>
+                                <th>  
+                                {% if slot %}
+                                    <h1 class= w3-text-white>Editar Módulo</h1>
+                                {% else %}
+                                    <h1 class= w3-text-white>Novo Módulo</h1>
+                                {% endif %}</th>
+                            </tr>
+                            <tr>
+                                <td>
+                            <ol>
+                            <div class= text-center>
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-success" aria-hidden="true">Salvar</button>
+                                {% if slot %}
+                                    <a href="{% url 'delete_slot' slot.id %}" class="btn btn-danger" aria-hidden="true">
+                                        Deletar
+                                    </a>
+                                {% endif %}
+                            </form>
+                            </div>
+                            </ol> 
+                                </td>
+
+                            </tr>
+                            </table>
+            <br>
+            <br>
+                </div>
+    
+                <br>
+                <br>
+            </p>
+          </div>
+      
+    <!-- end of Page content -->
+        </div> 
+    
 {% endblock %}
+
